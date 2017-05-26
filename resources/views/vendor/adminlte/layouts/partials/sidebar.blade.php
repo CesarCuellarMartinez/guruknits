@@ -47,6 +47,9 @@
              <li><a href="{{ URL::to('paquete')}}"><i class='fa fa-link'></i> <span>Paquetes</span></a></li>
              <li><a href="{{ URL::to('hora')}}"><i class='fa fa-link'></i> <span>Horas</span></a></li>
              <li><a href="{{ URL::to('horario')}}"><i class='fa fa-link'></i> <span>Horarios</span></a></li>
+
+             <li><a href="{{ URL::to('color')}}"><i class='fa fa-link'></i> <span>Colors</span></a></li>
+             <li><a href="{{ URL::to('content')}}"><i class='fa fa-link'></i> <span>Contents</span></a></li>
             <!-- <li><a href="{{ URL::to('grafica')}}"><i class='fa fa-link'></i> <span>Graficas</span></a></li>-->
             <li class="treeview">
                 <a href="#"><i class='fa fa-link'></i> <span>Graficas</span> <i class="fa fa-angle-left pull-right"></i></a>

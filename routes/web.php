@@ -30,6 +30,18 @@ Route::resource('/reserva','ReservaController');
 
 //Route::resource('/reserva/eli','ReservaController@eli');
 
+//Lo de guru
+
+Route::resource('/color','ColorController');
+Route::get('/color/eli/{id}', 'ColorController@eli');
+
+Route::resource('/content','ContentController');
+Route::get('/content/eli/{id}', 'ContentController@eli');
+
+
+
+
+//
 Route::resource('/asignar','AsignarController');
 Route::resource('/edecan','EdecanController');
 Route::resource('/asignar','AsignarController');
