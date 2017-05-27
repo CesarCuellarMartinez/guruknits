@@ -38,6 +38,11 @@ Route::get('/color/eli/{id}', 'ColorController@eli');
 Route::resource('/content','ContentController');
 Route::get('/content/eli/{id}', 'ContentController@eli');
 
+Route::resource('/supplierstipe','SuppliersTipeController');
+Route::get('/supplierstipe/eli/{id}', 'SuppliersTipeController@eli');
+
+Route::resource('/supplier','SupplierController');
+Route::get('/supplier/eli/{id}', 'SupplierController@eli');
 
 
 

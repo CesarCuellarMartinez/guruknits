@@ -50,6 +50,8 @@
 
              <li><a href="{{ URL::to('color')}}"><i class='fa fa-link'></i> <span>Colors</span></a></li>
              <li><a href="{{ URL::to('content')}}"><i class='fa fa-link'></i> <span>Contents</span></a></li>
+             <li><a href="{{ URL::to('supplierstipe')}}"><i class='fa fa-link'></i> <span>SuppliersTipes</span></a></li>
+             <li><a href="{{ URL::to('supplier')}}"><i class='fa fa-link'></i> <span>Supplier</span></a></li>
             <!-- <li><a href="{{ URL::to('grafica')}}"><i class='fa fa-link'></i> <span>Graficas</span></a></li>-->
             <li class="treeview">
                 <a href="#"><i class='fa fa-link'></i> <span>Graficas</span> <i class="fa fa-angle-left pull-right"></i></a>
