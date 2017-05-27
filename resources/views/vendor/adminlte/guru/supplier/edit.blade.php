@@ -23,7 +23,7 @@
 			<div class="row">
 				<div class="col-md-6">
 					<label for="name">Name</label>
-					<input type="number" name="name" class="form-control" value="{{$supplier->name}}" placeholder="Name...">
+					<input type="text" name="name" class="form-control" value="{{$supplier->name}}" placeholder="Name...">
 				</div>
 				
 			</div>

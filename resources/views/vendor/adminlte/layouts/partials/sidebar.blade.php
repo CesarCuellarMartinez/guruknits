@@ -37,21 +37,13 @@
             <li class="active"><a href="{{ url('home') }}"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.home') }}</span></a></li>
             
             @if (Auth::user()->tipo == 1)
-           
-            <li><a href="{{ URL::to('asignar')}}"><i class='fa fa-link'></i> <span>Asignar</span></a></li>
-            <li><a href="{{ URL::to('reserva')}}"><i class='fa fa-link'></i> <span>Reservas</span></a></li>
-            <li><a href="{{ URL::to('instituto')}}"><i class='fa fa-link'></i> <span>Institutos</span></a></li>
-             <li><a href="{{ URL::to('espacio')}}"><i class='fa fa-link'></i> <span>Espacios</span></a></li>
-             <li><a href="{{ URL::to('taller')}}"><i class='fa fa-link'></i> <span>Talleres</span></a></li>
-             <li><a href="{{ URL::to('exhibicion')}}"><i class='fa fa-link'></i> <span>Exhibiciones</span></a></li>
-             <li><a href="{{ URL::to('paquete')}}"><i class='fa fa-link'></i> <span>Paquetes</span></a></li>
-             <li><a href="{{ URL::to('hora')}}"><i class='fa fa-link'></i> <span>Horas</span></a></li>
-             <li><a href="{{ URL::to('horario')}}"><i class='fa fa-link'></i> <span>Horarios</span></a></li>
+
 
              <li><a href="{{ URL::to('color')}}"><i class='fa fa-link'></i> <span>Colors</span></a></li>
              <li><a href="{{ URL::to('content')}}"><i class='fa fa-link'></i> <span>Contents</span></a></li>
              <li><a href="{{ URL::to('supplierstipe')}}"><i class='fa fa-link'></i> <span>SuppliersTipes</span></a></li>
              <li><a href="{{ URL::to('supplier')}}"><i class='fa fa-link'></i> <span>Supplier</span></a></li>
+             <li><a href="{{ URL::to('fabric')}}"><i class='fa fa-link'></i> <span>Fabric</span></a></li>
             <!-- <li><a href="{{ URL::to('grafica')}}"><i class='fa fa-link'></i> <span>Graficas</span></a></li>-->
             <li class="treeview">
                 <a href="#"><i class='fa fa-link'></i> <span>Graficas</span> <i class="fa fa-angle-left pull-right"></i></a>

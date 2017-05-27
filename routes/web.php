@@ -44,7 +44,8 @@ Route::get('/supplierstipe/eli/{id}', 'SuppliersTipeController@eli');
 Route::resource('/supplier','SupplierController');
 Route::get('/supplier/eli/{id}', 'SupplierController@eli');
 
-
+Route::resource('/fabric','FabricController');
+Route::get('/fabric/eli/{id}', 'FabricController@eli');
 
 //
 Route::resource('/asignar','AsignarController');
