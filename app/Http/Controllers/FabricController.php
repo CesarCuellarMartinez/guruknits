@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Fabric;
+use App\FabricColor;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\FabricFormRequest;
 use DB;
@@ -21,7 +22,7 @@ class FabricController extends Controller
     		$fabric =DB::table('fabrics as f')
     		->join('suppliers as s','f.supplier_id','=','s.id')
     		->join('contents as c','f.content_id','=','c.id')
-    		->select('f.id','f.code','s.name as supplier','c.description as content','f.weight','f.width','f.coo','f.price')
+    		->select('f.id','f.code','s.name as supplier','c.description as content','f.weight','f.width','f.coo','f.price','f.description')
     		->where('code','LIKE','%'.$query.'%')
     		->orwhere('s.name','LIKE','%'.$query.'%')
     		->orwhere('c.description','LIKE','%'.$query.'%')
@@ -38,13 +39,20 @@ class FabricController extends Controller
     }
     public function store(FabricFormRequest $request){
     	$fabric = new Fabric;
+
+    	$weun =$request->get('we_un');
+    	$wiun =$request->get('wi_un');
+    	$prun =$request->get('pr_un');
+    	$prc =$request->get('pr_c');
+
     	$fabric->code=$request->get('code');
     	$fabric->supplier_id=$request->get('supplier_id');
     	$fabric->content_id=$request->get('content_id');
-    	$fabric->weight=$request->get('weight');
-    	$fabric->width=$request->get('width');
+    	$fabric->weight=$request->get('weight').' '.$weun;
+    	$fabric->width=$request->get('width').' '.$wiun;
     	$fabric->coo=$request->get('coo');
-        $fabric->price=$request->get('price');  
+        $fabric->price=$request->get('price').' '.$prc.' '.$prun;  
+        $fabric->description=$request->get('description');  
     	$fabric->condicion='1';
     	$fabric->save();
         //El redirect es con respecto al nombre que tiene en el enrutamiento
@@ -68,7 +76,8 @@ class FabricController extends Controller
     	$fabric->weight=$request->get('weight');
     	$fabric->width=$request->get('width');
     	$fabric->coo=$request->get('coo');
-        $fabric->price=$request->get('price');  
+        $fabric->price=$request->get('price'); 
+        $fabric->description=$request->get('description'); 
     	$fabric->update();
     	return redirect('fabric')->with('message','Succesfully Updated');
     }
@@ -78,10 +87,54 @@ class FabricController extends Controller
     	$fabric->updated();
     	return redirect('fabric')->with('message','Succesfully Deleted');
     }
+
+ public function destroyFabricColor($id){
+    	$fabric=FabricColor::findOrFail($id);
+    	$fabric->condicion='0';
+    	$fabric->updated();
+    	return redirect('fabric/color')->with('message','Succesfully Deleted');
+    }
+
     public function eli($id){
         $fabric=Fabric::findOrFail($id);
         $fabric->condicion='0';
         $fabric->update();
         return redirect('fabric')->with('message','Succesfully Deleted');
     }
+
+public function eliFabricColor($id){
+        $fabric=Fabric::findOrFail($id);
+        $fabric->condicion='0';
+        $fabric->update();
+        return redirect('fabric')->with('message','Succesfully Deleted');
+    }
+
+    public function colors($id){
+    	
+    	$colors = DB::table('colors')->where('condicion','=','1')->get();
+    	$fc = DB::table('fabric_color as fc')
+    	->join('colors as c','fc.color_id','=','c.id')
+    	->select('fc.id as id','c.name as color','fc.color_id as color_id')
+    	->where('fc.fabric_id','=',$id)->get();
+    	
+    	return view("adminlte::guru.fabric.colors",["fabric"=>Fabric::findOrFail($id),"colors"=>$colors,"faco"=>$fc]);
+
+    }
+
+    public function fabriccolor(Request $request,$fabric_id)
+    {
+
+    	$fabriccolor = new FabricColor;
+
+    	$fabriccolor->color_id = $request->get('color_id');
+    	$fabriccolor->fabric_id = $fabric_id;
+
+    	$fabriccolor->condicion='1';
+    	$fabriccolor->save();
+        //El redirect es con respecto al nombre que tiene en el enrutamiento
+    	return redirect('fabric/colors')->with('message','Succesfully Stored');
+
+    }
+
 }
+

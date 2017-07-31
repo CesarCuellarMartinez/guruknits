@@ -4,19 +4,15 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Fabric extends Model
+class FabricColor extends Model
 {
-     protected $table = "fabrics";
+     protected $table = "fabric_color";
 	protected $primaryKey ='id';
 	protected $fillable=[
-		'code',
-		'content_id',
-		'supplier_id',
-		'weight',
-		'width',
-		'coo',
-		'price',
-		'description',
+		
+		'fabric_id',
+		'color_id',
+		
 		'condicion'
 	];
 	protected $guarded=[

@@ -39,6 +39,7 @@
 						<td>{{$fab->price}}</td>
 
 						<td><a href="{{URL::action('FabricController@edit',$fab->id)}}"><button class="btn btn-info">Edit</button></a>
+							<a href="{{URL::action('FabricController@colors',$fab->id)}}"><button class="btn btn-info">Colors</button></a>
 						<a href="" data-target="#modal-delete-{{$fab->id}}" data-toggle="modal"><button class="btn btn-danger">Delete</button></a></td>
 							@push('scripts')
 						<script>

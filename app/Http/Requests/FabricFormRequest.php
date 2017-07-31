@@ -28,9 +28,10 @@ class FabricFormRequest extends FormRequest
             
             'content_id'=>'required',
             'supplier_id'=>'required ',
-            'weight'=>'required | max:100',
-            'width'=>'required | max:100',
+            'weight'=>'required | max:30',
+            'width'=>'required | max:30',
             'coo'=>'required | max:100',    
+            'description'=>'required | max:400', 
             'price'=>'required | max:100'
             
         ];
