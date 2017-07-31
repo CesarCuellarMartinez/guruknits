@@ -31,7 +31,7 @@
 				<div class="row">
 				<div class="col-lg-8">
 					<label for="description">Description</label>
-					<textarea class="form-control" rows="3" name="description" value="{{$supplierstipe->description}}" placeholder="Description..."></textarea>
+					<textarea class="form-control" rows="3" name="description" value="{{$supplierstipe->description}}" placeholder="Description...">{{$supplierstipe->description}}</textarea>
 					
 				</div>
 				</div>

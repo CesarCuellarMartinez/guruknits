@@ -26,7 +26,8 @@
 					<input type="text" name="code" class="form-control" value="{{$fabric->code}}" placeholder="Code ...">
 				</div> 
 			</div>
-			<div class="col-md-5">
+			<div class="row">
+				<div class="col-md-3">
 			
 				<label>Supplier</label>
 				<select name="supplier_id" class="form-control">
@@ -38,7 +39,7 @@
 						@endif
 					@endforeach
 				</select>
-		
+			
 		</div>
 
 		<div class="col-md-5">
@@ -55,31 +56,128 @@
 				</select>
 		
 		</div>
-			
+	</div>
 			<div class="row">
-				<div class="col-lg-8">
-					<label for="weight">Weight(kg)</label>
-					<input type="text" name="weight" class="form-control" value="{{$fabric->weight}}" placeholder="Weight ...">
+				<div class="col-lg-5">
+					<label for="weight">Weight</label>
+					<input type="text" name="weight" class="form-control" value="{{$weq}}" placeholder="Weight ...">
 					
 				</div>
-			
-				<div class="col-lg-8">
-					<label for="width">Width(ft)</label>
-					<input type="text" name="width" class="form-control" value="{{$fabric->width}}" placeholder="Width ...">
+
+				<div class="col-md-3">
+					<label for="we_un">Units</label>
+					<select name="we_un" class="form-control">
+
+						<?php 
+						$i=0;
+						for($i ; $i<sizeof($wea); $i++)
+						{
+
+							if($wea[$i] == $weu)
+							{
+							echo"<option value=".$wea[$i]." selected>".$wea[$i]."</option>";	
+							}
+							
+							else{
+							echo"<option value=".$wea[$i]." >".$wea[$i]."</option>";}
+							
+						}
+
+						?>
+						
+				</select>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-5">
+					<label for="width">Width</label>
+					<input type="text" name="width" class="form-control" value="{{$wiq}}" placeholder="Weight ...">
 					
+				</div>
+
+				<div class="col-md-3">
+					<label for="wi_un">Units</label>
+					<select name="wi_un" class="form-control">
+						<?php 
+						$i=0;
+						for($i ; $i<sizeof($wia); $i++)
+						{
+
+							if($wia[$i] == $wiu)
+							{
+							echo"<option value=".$wia[$i]." selected>".$wia[$i]."</option>";	
+							}
+							
+							else{
+							echo"<option value=".$wia[$i]." >".$wia[$i]."</option>";}
+							
+						}
+
+						?>
+				</select>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-lg-8">
-					<label for="coo">Coo</label>
+					<label for="coo">Country of Origen</label>
 					<input type="text" name="coo" class="form-control" value="{{$fabric->coo}}" placeholder="Coo ...">
 					
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-lg-8">
+				<div class="col-lg-5">
 					<label for="price">Price</label>
-					<input type="number" step="0.1" name="price" class="form-control" value="{{$fabric->price}}" placeholder="Price ...">
+					<input type="number" step="0.1" name="price" class="form-control" value="{{$pr}}" placeholder="Price ...">
+					
+				</div>
+				<div class="col-md-3">
+					<label for="pr_un">Units</label>
+					<select name="pr_un" class="form-control">
+						<?php 
+						$i=0;
+						for($i ; $i<sizeof($pua); $i++)
+						{
+
+							if($pua[$i] == $un)
+							{
+							echo"<option value=".$pua[$i]." selected>".$pua[$i]."</option>";	
+							}
+							
+							else{
+							echo"<option value=".$pua[$i]." >".$pua[$i]."</option>";}
+							
+						}
+
+						?>
+				</select>
+				</div>
+				<div class="col-md-3">
+					<label for="pr_c">Currency</label>
+					<select name="pr_c" class="form-control">
+						<?php 
+						$i=0;
+						for($i ; $i<sizeof($pca); $i++)
+						{
+
+							if($pca[$i] == $cu)
+							{
+							echo"<option value=".$pca[$i]." selected>".$pca[$i]."</option>";	
+							}
+							
+							else{
+							echo"<option value=".$pca[$i]." >".$pca[$i]."</option>";}
+							
+						}
+
+						?>
+				</select>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-8">
+					<label for="description">Description</label>
+					<textarea class="form-control" rows="3" name="description"  placeholder="Description..." value="{{$fabric->description}}">{{$fabric->description}}</textarea>
 					
 				</div>
 			</div>

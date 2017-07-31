@@ -63,8 +63,8 @@
 						<a href="" data-target="#modal-delete2-{{$f->id}}" data-toggle="modal"><button class="btn btn-danger">Delete</button></a></td>
 							@push('scripts')
 						<script>
-						$('#modal-delete2-{{$f->id}}').appendTo("body");
-							$("#modal-delete2-{{$f->id}}").css("z-index", "1500");
+						//$('#modal-delete2-{{$f->id}}').appendTo("body");
+						//	$("#modal-delete2-{{$f->id}}").css("z-index", "1500");
 							//$('#modal-delete-1').appendTo("body");
 						</script>
 						@endpush

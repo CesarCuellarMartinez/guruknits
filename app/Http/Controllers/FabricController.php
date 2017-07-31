@@ -65,19 +65,62 @@ class FabricController extends Controller
     	
     	$supplier = DB::table('suppliers')->where('condicion','=','1')->get();
     	$content = DB::table('contents')->where('condicion','=','1')->get();
-    	return view("adminlte::guru.fabric.edit",["fabric"=>Fabric::findOrFail($id),"supplier"=>$supplier,"content"=>$content]);
+        $fabric=Fabric::findOrFail($id);
+        $WeA = ['onze/YD2','grms/M2'];
+        $WiA = ['inch','cm'];
+        $puA = ['yd','lb'];
+        $pcA = ['USA','E'];
+        $widthA = explode(" ",$fabric->width);
+        $weightA = explode(" ",$fabric->weight);
+        $priceA = explode(" ",$fabric->price);
+
+        $weightU=0;
+        $widthU =0;
+        $un =0;
+        $cu =0;
+
+        $weightQ = $weightA[0];
+        if(sizeof($weightA) != 1)
+        {
+            $weightU = $weightA[1];
+        }
+        
+
+        $widthQ = $widthA[0];
+        if(sizeof($widthA) != 1)
+        {
+            $widthU = $widthA[1];
+        }
+        
+
+        $pr = $priceA[0];
+        if(sizeof($priceA) != 1)
+        {
+            $cu = $priceA[1];
+            $un = $priceA[2];
+        }
+        
+        
+
+    	return view("adminlte::guru.fabric.edit",["pua"=>$puA ,"pca"=>$pcA ,"wia"=>$WiA,"wea"=>$WeA,"pr"=>$pr,"un"=>$un,"cu"=>$cu,"wiu"=>$widthU,"wiq"=>$widthQ,"weu"=>$weightU,"weq"=>$weightQ,"fabric"=>$fabric,"supplier"=>$supplier,"content"=>$content]);
 
     }
     public function update(FabricFormRequest $request, $id){
     	$fabric=Fabric::findOrFail($id);
+        
+        $weun =$request->get('we_un');
+        $wiun =$request->get('wi_un');
+        $prun =$request->get('pr_un');
+        $prc =$request->get('pr_c');
+
     	$fabric->code=$request->get('code');
-    	$fabric->supplier_id=$request->get('supplier_id');
-    	$fabric->content_id=$request->get('content_id');
-    	$fabric->weight=$request->get('weight');
-    	$fabric->width=$request->get('width');
-    	$fabric->coo=$request->get('coo');
-        $fabric->price=$request->get('price'); 
-        $fabric->description=$request->get('description'); 
+        $fabric->supplier_id=$request->get('supplier_id');
+        $fabric->content_id=$request->get('content_id');
+        $fabric->weight=$request->get('weight').' '.$weun;
+        $fabric->width=$request->get('width').' '.$wiun;
+        $fabric->coo=$request->get('coo');
+        $fabric->price=$request->get('price').' '.$prc.' '.$prun;  
+        $fabric->description=$request->get('description');  
     	$fabric->update();
     	return redirect('fabric')->with('message','Succesfully Updated');
     }
