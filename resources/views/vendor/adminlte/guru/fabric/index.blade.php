@@ -25,7 +25,6 @@
 						<th>Width</th>
 						<th>COO</th>
 						<th>Price</th>
-						<th>Description</th>
 						<th>Options</th>
 					</thead>
 					@foreach($fabric as $fab)
@@ -38,7 +37,6 @@
 						<td>{{$fab->width}}</td>
 						<td>{{$fab->coo}}</td>
 						<td>{{$fab->price}}</td>
-						<td>{{$fab->description}}</td>
 
 						<td><a href="{{URL::action('FabricController@edit',$fab->id)}}"><button class="btn btn-info">Edit</button></a>
 							<a href="{{URL::action('FabricController@colors',$fab->id)}}"><button class="btn btn-info">Colors</button></a>

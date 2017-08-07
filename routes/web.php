@@ -48,6 +48,7 @@ Route::resource('/fabric','FabricController');
 Route::get('/fabric/eli/{id}', 'FabricController@eli');
 Route::get('/fabric/eliFabricColor/{id}', 'FabricController@eliFabricColor');
 Route::get('/fabric/colors/{id}', 'FabricController@colors');
+Route::resource('/asignColor/{id}','FabricController@fabriccolor');
 
 //
 Route::resource('/asignar','AsignarController');

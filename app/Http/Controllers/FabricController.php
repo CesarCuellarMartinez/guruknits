@@ -157,19 +157,37 @@ public function eliFabricColor($id){
     	$colors = DB::table('colors')->where('condicion','=','1')->get();
     	$fc = DB::table('fabric_color as fc')
     	->join('colors as c','fc.color_id','=','c.id')
-    	->select('fc.id as id','c.name as color','fc.color_id as color_id')
+    	->select('fc.id as id','c.name as color','c.id as color_id')
     	->where('fc.fabric_id','=',$id)->get();
     	
-    	return view("adminlte::guru.fabric.colors",["fabric"=>Fabric::findOrFail($id),"colors"=>$colors,"faco"=>$fc]);
+    	return view("adminlte::guru.fabric.asignColor",["fabric"=>Fabric::findOrFail($id),"colors"=>$colors,"faco"=>$fc]);
 
     }
 
-    public function fabriccolor(Request $request,$fabric_id)
+     public function fabriccolor(Request $request,$fabric_id)
+    //public function fabriccolor( Request $request,$fabric_id)
+    {
+
+        $fabriccolor = new FabricColor;
+
+        $fabriccolor->color_id = $request->get('color_id');
+        //$fabriccolor->fabric_id = $fabric_id;
+        $fabriccolor->fabric_id = $request->get('f');
+
+        $fabriccolor->condicion='1';
+        $fabriccolor->save();
+        //El redirect es con respecto al nombre que tiene en el enrutamiento
+        return redirect('fabric')->with('message','Succesfully Stored');
+
+    }
+
+    public function fabriccolor2(Request $request,$fabric_id)
+    //public function fabriccolor( Request $request,$fabric_id)
     {
 
     	$fabriccolor = new FabricColor;
 
-    	$fabriccolor->color_id = $request->get('color_id');
+    	$fabriccolor->color_id = $request->$color_id;
     	$fabriccolor->fabric_id = $fabric_id;
 
     	$fabriccolor->condicion='1';
