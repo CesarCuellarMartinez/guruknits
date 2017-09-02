@@ -31,6 +31,8 @@ Route::resource('/reserva','ReservaController');
 //Route::resource('/reserva/eli','ReservaController@eli');
 
 //Lo de guru
+//Purchase
+Route::resource('/purchase','PurchaseController');
 
 Route::resource('/color','ColorController');
 Route::get('/color/eli/{id}', 'ColorController@eli');
